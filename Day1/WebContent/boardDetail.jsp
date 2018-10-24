@@ -38,6 +38,11 @@
 		<td>글내용</td><td> <%=rs.getString("board_content") %></td>
 	</tr>
 	<tr>
+		<td>첨부파일</td>
+		<td><a href="fileDown.jsp?board_filename=<%=rs.getString("board_filename")%>">
+		<%=rs.getString("board_filename") %></a></td>
+	</tr>
+	<tr>
 		<td colspan="2" align="center">
 		<a href="boardModifyForm.jsp?num=<%=board_num%>"><input type="button" value="수정"></a>
 		<a href="boardDelete.jsp?num=<%=board_num%>"><input type="button" value="삭제"></a>

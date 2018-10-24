@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="boardWrite.jsp" method="post">
+<form action="boardWrite.jsp" method="post" enctype="multipart/form-data">
 <table height="300" width="500" align="center" border="1">
 	<tr>
 		<td><input type="text" name="board_title" placeholder="글제목"></td>
 	</tr>
 	<tr>
 		<td><textarea name="board_content" cols="20" rows="10" placeholder="글내용"></textarea></td>
+	</tr>
+	<tr>
+		<td>파일업로드: <input type="file" name="file"></td>
 	</tr>
 	<tr>
 		<td align="center"><input type="submit" value="글쓰기"></td>
