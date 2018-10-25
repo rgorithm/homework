@@ -12,6 +12,7 @@
 			nowPage = Integer.parseInt(request.getParameter("page"));
 		}
 	int offset = (nowPage - 1) * 5;
+	
 		//한페이지에보일글수
 	int countList = 5;
 		//한화면에보일페이지수
@@ -73,6 +74,7 @@
 		<td colspan="4" align="center"><a href="boardWriteForm.jsp"><input type="button" value="글작성"></a></td>
 	</tr>
 </table>
+<table>
 	<%
 	int startPage = ((nowPage - 1) / 5) * 5 + 1;
 	int endPage = startPage + countPage - 1;
@@ -80,14 +82,23 @@
 			endPage = totalPage;
 		}
 	System.out.println(startPage+","+endPage);
+	%>
+		<%
+			if(endPage>5){%>
+				<a href="boardList.jsp?page=<%=startPage-1 %>">이전</a>
+		<%}
 	for(int a=startPage; a<=endPage; a++){
 		if(a==nowPage){%>
 			<%=a %>
 		<%}else{%>
-			<a href="boardList.jsp?page=<%=a%>"><%=a%></a>
+			<a href="boardList.jsp?page=<%=a%>"><%=a%>&nbsp;&nbsp;&nbsp;</a>
 		<%}%>
-		
 	<%}
+		if(endPage<totalPage){%>
+			<a href="boardList.jsp?page=<%=endPage+1 %>">다음</a>
+		<%}%>
+</table>
+	<% 
 	}catch(Exception e){
 		e.printStackTrace();
 	}finally{
